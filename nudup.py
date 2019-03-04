@@ -304,7 +304,7 @@ class RmdupWriter(AbstractWriter):
 	def write(self, sam_row, to_rm_flag=True):
 		""" Writes toRM open processes """
 		if to_rm_flag:
-			sam_str = self._get_sam_str(sam_row)
+			# sam_str = self._get_sam_str(sam_row) #! //BUG: this is a bug, which caused "shorten qname"
 			self._torm.stdin.write(self._get_sam_str(sam_row))
 	def close(self):
 		""" Flushes all input to subprocess and waits """
